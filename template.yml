@@ -12,7 +12,7 @@ Parameters:
     Description: IAM role to allow AWS CodeDeploy to manage deployment of AWS Lambda functions
   Stage:
     Type: String
-    Description: The name for a project pipeline stage, such as Staging or Prod, for which resources are provisioned and deployed.
+    Description: The name for a project pipeline stage, such as Staging or Prod, for which resources are provisioned and deployed. Najeeb is awesome.
     Default: ''
 
 Globals:
