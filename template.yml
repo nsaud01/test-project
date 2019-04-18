@@ -27,7 +27,40 @@ Resources:
   GetHelloWorld:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.get
+      Handler: test1/index.get
+      Runtime: nodejs8.10
+      CodeUri: ./public/test1
+      Role:
+        Fn::GetAtt:
+        - LambdaExecutionRole
+        - Arn
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /test1
+            Method: get
+
+    GetHelloWorld2:
+      Type: AWS::Serverless::Function
+      Properties:
+        Handler: test2/index.get
+        Runtime: nodejs8.10
+        Role:
+          Fn::GetAtt:
+          - LambdaExecutionRole
+          - Arn
+        Events:
+          GetEvent:
+            Type: Api
+            Properties:
+              Path: /test2
+              Method: get
+
+  GetHelloWorld3:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: test3/index.get
       Runtime: nodejs8.10
       Role:
         Fn::GetAtt:
@@ -37,8 +70,9 @@ Resources:
         GetEvent:
           Type: Api
           Properties:
-            Path: /
+            Path: /test3
             Method: get
+
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
     Type: AWS::IAM::Role
